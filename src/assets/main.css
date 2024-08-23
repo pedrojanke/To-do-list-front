@@ -1,0 +1,103 @@
+/* Adicione isso ao seu arquivo main.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Evita rolagem */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.animated-title {
+    margin-bottom: 30px;
+    color: #ffffff;
+    animation: mainTitleAnimation 1.5s ease-in-out;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.section h2 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#teams-list {
+    margin-bottom: 15px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #6200ea;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3700b3;
+}
+
+/* Animação para o título da tela principal */
+@keyframes mainTitleAnimation {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Consultas de mídia para responsividade */
+@media (max-width: 768px) {
+    .section {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
