@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ).join('');
         } catch (error) {
             console.error('Erro ao carregar times:', error);
-            teamsContainer.innerHTML = 'Erro ao carregar times';
+            teamsContainer.innerHTML = 'Erro ao carregar grupos';
         }
     });
 });
