@@ -5,6 +5,17 @@ document.getElementById('login-form').addEventListener('submit', async function(
     const password = document.getElementById('password').value;
     const messageDiv = document.getElementById('message');
 
+    // Verifica se os campos estão preenchidos
+    if (!email || !password) {
+        messageDiv.style.display = 'block';
+        messageDiv.textContent = 'Por favor, preencha todos os campos.';
+        messageDiv.className = 'message-box error';
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+        }, 1000);
+        return;
+    }
+
     try {
         const response = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`, {
             method: 'GET',
@@ -16,12 +27,11 @@ document.getElementById('login-form').addEventListener('submit', async function(
         if (response.ok) {
             const users = await response.json();
 
-            // Verifica se pelo menos um usuário foi retornado
             if (users.length > 0) {
-                // Encontre o usuário com o e-mail correto e verifique a senha
                 const user = users.find(user => user.email === email);
 
                 if (user && user.password === password) {
+                    localStorage.setItem('username', user.name); // Armazena o nome do usuário
                     messageDiv.style.display = 'block';
                     messageDiv.textContent = 'Login bem-sucedido!';
                     messageDiv.className = 'message-box success';

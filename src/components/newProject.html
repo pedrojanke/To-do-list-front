@@ -1,0 +1,23 @@
+<!-- newProject.html -->
+<div id="new-project-form" class="overlay hidden">
+    <div class="form-container">
+        <h2>Criar Novo Projeto</h2>
+        <form id="project-form">
+            <label for="project-name">Nome do Projeto:</label>
+            <input type="text" id="project-name" name="name" required>
+            
+            <label for="project-description">Descrição do Projeto:</label>
+            <textarea id="project-description" name="description" required></textarea>
+            
+            <label for="team-select">Selecionar Time (opcional):</label>
+            <select id="team-select" name="team_id">
+                <option value="">Nenhum</option>
+                <!-- Times serão preenchidos aqui -->
+            </select>
+            
+            <button type="submit" class="btn new-model-btn">Criar Projeto</button>
+            <button type="button" class="btn cancel-btn" id="cancel-btn">Cancelar</button>
+        </form>
+    </div>
+</div>
+<script src="../services/principal.js"></script>
