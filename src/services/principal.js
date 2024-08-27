@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const newModelBtn = document.querySelector('.new-model-btn');
     const container = document.querySelector('.container'); // ou um outro container adequado
-    const cancelBtn = document.getElementById('cancel-btn');
 
     function loadNewProjectForm() {
         fetch('newProject.html')
@@ -42,10 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Erro ao carregar times:', error));
     }
 
-    cancelBtn.addEventListener('click', () => {
-        formDiv.classList.add('hidden');
-    });
-
     document.addEventListener('submit', event => {
         if (event.target.id === 'project-form') {
             event.preventDefault(); // Impede o envio padrão do formulário
@@ -63,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(result => {
                 console.log('Projeto criado com sucesso:', result);
-                formDiv.classList.add('hidden');
+                const formDiv = document.querySelector('#new-project-form');
+                formDiv.classList.add('hidden'); // Esconde o formulário
             })
             .catch(error => console.error('Erro ao criar o projeto:', error));
         }
