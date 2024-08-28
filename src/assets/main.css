@@ -99,6 +99,12 @@ body {
     color: #ffffff;
 }
 
+.new-project-btn {
+    background-color: #6200ea;
+    color: #ffffff;
+}
+
+
 .quadro-container {
     display: flex;
     justify-content: space-between;
@@ -118,6 +124,10 @@ body {
 }
 
 .new-model-btn:hover {
+    background-color: #3700b3;
+}
+
+.new-project-btn:hover {
     background-color: #3700b3;
 }
 
@@ -167,12 +177,13 @@ body {
 .project {
     background-color: #333;
     color: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    flex: 1 1 calc(33% - 20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    width: 250px;
     text-align: center;
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .project:hover {
@@ -188,6 +199,13 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
     transition: background-color 0.3s ease;
+}
+
+.quadro-body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .team:hover {
@@ -258,4 +276,8 @@ body {
 
 .cancel-btn:hover {
     background-color: #b71c1c;
+}
+
+.hidden {
+    display: none;
 }

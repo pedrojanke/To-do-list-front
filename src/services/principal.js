@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const newModelBtn = document.querySelector('.new-model-btn');
+    const newModelBtn = document.querySelector('.new-project-btn');
     const container = document.querySelector('.container'); // ou um outro container adequado
+
+    newModelBtn.addEventListener('click', () => {
+        loadNewProjectForm();
+    });
 
     function loadNewProjectForm() {
         fetch('newProject.html')
@@ -10,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tempDiv.innerHTML = html;
                 const formDiv = tempDiv.querySelector('#new-project-form');
                 container.appendChild(formDiv);
-
+                formDiv.classList.remove('hidden');
                 const cancelBtn = document.getElementById('cancel-btn');
                 cancelBtn.addEventListener('click', () => {
                     formDiv.classList.add('hidden');
@@ -21,16 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Erro ao carregar o formulário:', error));
     }
 
-    newModelBtn.addEventListener('click', () => {
-        loadNewProjectForm();
-    });
-
     function fetchTeams() {
-        fetch('http://localhost:3000/teams')  // Substitua pela URL da sua API
+        fetch('http://localhost:3000/teams')
             .then(response => response.json())
             .then(data => {
                 const teamSelect = document.getElementById('team-select');
-                teamSelect.innerHTML = '<option value="">Nenhum</option>'; // Adiciona a opção de "Nenhum"
+                teamSelect.innerHTML = '<option value="">Nenhum</option>';
                 data.forEach(team => {
                     const option = document.createElement('option');
                     option.value = team.id;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('submit', event => {
         if (event.target.id === 'project-form') {
-            event.preventDefault(); // Impede o envio padrão do formulário
+            event.preventDefault();
 
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(result => {
                 console.log('Projeto criado com sucesso:', result);
                 const formDiv = document.querySelector('#new-project-form');
-                formDiv.classList.add('hidden'); // Esconde o formulário
+                formDiv.classList.add('hidden');
             })
             .catch(error => console.error('Erro ao criar o projeto:', error));
         }
