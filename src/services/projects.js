@@ -41,6 +41,21 @@ function loadProjects() {
                 projectElement.className = 'project';
                 projectElement.textContent = project.name;
 
+                const projectName = document.createElement('span');
+                projectName.className = 'project-name';
+                projectName.textContent = project.name;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Excluir';
+                deleteBtn.className = 'delete-btnn';
+                deleteBtn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    deleteProject(project.id, projectElement);
+                });
+
+                projectElement.appendChild(projectName);
+                projectElement.appendChild(deleteBtn);
+
                 projectElement.addEventListener('click', () => {
                     window.location.href = `projectsSelected.html?projectId=${project.id}`;
                 });
@@ -51,5 +66,18 @@ function loadProjects() {
         .catch(error => console.error('Erro ao carregar os projetos:', error));
 }
 
-// Certifique-se de chamar loadProjects no carregamento da página principal
+function deleteProject(projectId, projectElement) {
+    fetch(`http://localhost:3000/projects/${projectId}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro ao excluir o projeto: ${response.statusText}`);
+        }
+        projectElement.remove();
+        console.log('Projeto excluído com sucesso');
+    })
+    .catch(error => console.error(error));
+}
+
 document.addEventListener('DOMContentLoaded', loadProjects);

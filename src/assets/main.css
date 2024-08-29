@@ -426,3 +426,20 @@ body {
 label {
     flex: 1;
 }
+
+.project-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #333;
+}
+
+.project-name {
+    flex: 1;
+}
