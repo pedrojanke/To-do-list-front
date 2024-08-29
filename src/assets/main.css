@@ -409,3 +409,20 @@ body {
 .delete-btnn:hover {
     background-color: #b43d3d;
 }
+
+.model {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.model span {
+    flex: 1;
+}
+
+label {
+    flex: 1;
+}
