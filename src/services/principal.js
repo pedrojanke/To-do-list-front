@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Projeto criado com sucesso:', result);
                 const formDiv = document.querySelector('#new-project-form');
                 formDiv.classList.add('hidden');
+                location.reload()
             })
             .catch(error => console.error('Erro ao criar o projeto:', error));
         }

@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 alert('Item criado com sucesso!');
                 document.getElementById('new-item-form').classList.add('hidden');
+                location.reload()
             } else {
                 alert('Erro ao criar o item. Tente novamente.');
             }
