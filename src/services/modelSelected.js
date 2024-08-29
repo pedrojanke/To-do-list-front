@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (response.ok) {
-                alert('Item criado com sucesso!');
                 document.getElementById('new-item-form').classList.add('hidden');
                 location.reload()
             } else {
@@ -67,7 +66,7 @@ function checkItem(itemId) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Item marcado como concluído!');
+            
         } else {
             alert('Erro ao marcar o item como concluído. Tente novamente.');
         }
@@ -85,7 +84,7 @@ function uncheckItem(itemId) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Item desmarcado!');
+           
         } else {
             alert('Erro ao desmarcar o item. Tente novamente.');
         }

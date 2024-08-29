@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => {
                 if (response.ok) {
-                    alert('Modelo criado com sucesso!');
                     document.getElementById('new-model-form').classList.add('hidden');
                     location.reload()
                 } else {
