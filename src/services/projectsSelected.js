@@ -1,16 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const projectName = localStorage.getItem('selectedProject');
     const newModelBtn = document.querySelector('.new-model-btn');
     const container = document.querySelector('.container');
 
     newModelBtn.addEventListener('click', () => {
         loadNewModelForm();
     });
-
-    if (projectName) {
-        const quadroHeader = document.querySelector('.quadro-header h2');
-        quadroHeader.textContent = projectName;
-    }
 
     function loadNewModelForm() {
         fetch('newModel.html')
@@ -36,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function submitNewModel(event) {
         event.preventDefault();
 
-        const projectName = localStorage.getItem('selectedProject');
         const modelName = document.getElementById('model-name').value;
+        const project_id = new URLSearchParams(window.location.search).get('projectId')
 
-        if (projectName && modelName) {
+
+        if (modelName && project_id) {
             const newModel = {
                 name: modelName,
-                projectName: projectName
+                project_id
             };
 
             fetch('http://localhost:3000/models', {
@@ -56,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert('Modelo criado com sucesso!');
                     document.getElementById('new-model-form').classList.add('hidden');
+                    location.reload()
                 } else {
                     alert('Erro ao criar o modelo. Tente novamente.');
                 }
@@ -72,6 +68,9 @@ function loadProjectById() {
         .then(project => {
             const quadroBody = document.querySelector('.quadro-body');
             quadroBody.innerHTML = '';
+
+            const quadroHeader = document.querySelector('.quadro-header h2');
+            quadroHeader.textContent = project.name
 
             project.models.forEach(model => {
                 const modelElement = document.createElement('div');
