@@ -42,9 +42,7 @@ function loadProjects() {
                 projectElement.textContent = project.name;
 
                 projectElement.addEventListener('click', () => {
-                    // Armazenar o nome do projeto no localStorage
-                    localStorage.setItem('selectedProject', project.name);
-                    window.location.href = `projectsSelected.html?project=${project.name}`;
+                    window.location.href = `projectsSelected.html?projectId=${project.id}`;
                 });
 
                 quadroBody.appendChild(projectElement);
