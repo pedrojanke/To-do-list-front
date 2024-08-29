@@ -89,7 +89,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.filter-btn {
+.btn-seconday {
     background-color: #333;
     color: #ffffff;
 }
