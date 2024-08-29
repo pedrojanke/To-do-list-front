@@ -106,13 +106,13 @@ function loadModelById() {
             model.items.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'item';
-
+            
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.className = 'checkbox';
-
+                checkbox.id = `checkbox-${item.id}`;
                 checkbox.checked = item.checked;
-
+            
                 checkbox.addEventListener('change', () => {
                     if (checkbox.checked) {
                         checkItem(item.id);
@@ -120,17 +120,40 @@ function loadModelById() {
                         uncheckItem(item.id);
                     }
                 });
+            
+                const label = document.createElement('label');
+                label.setAttribute('for', `checkbox-${item.id}`);
+                label.textContent = item.name;
 
-                const itemName = document.createElement('span');
-                itemName.textContent = item.name;
-
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Excluir';
+                deleteBtn.className = 'delete-btnn';
+                deleteBtn.addEventListener('click', () => {
+                    deleteItem(item.id);
+                });
+            
                 itemElement.appendChild(checkbox);
-                itemElement.appendChild(itemName);
-
+                itemElement.appendChild(label);
+                itemElement.appendChild(deleteBtn);
+            
                 quadroBody.appendChild(itemElement);
             });
         })
         .catch(error => console.error('Erro ao carregar os itens:', error));
+}
+
+function deleteItem(itemId) {
+    fetch(`http://localhost:3000/items/${itemId}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            loadModelById();
+        } else {
+            alert('Erro ao excluir o item. Tente novamente.');
+        }
+    })
+    .catch(error => console.error('Erro ao excluir item:', error));
 }
 
 document.addEventListener('DOMContentLoaded', loadModelById);
