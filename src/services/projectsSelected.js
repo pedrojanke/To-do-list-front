@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 project_id
             };
 
-            fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects', {
+            fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/models', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
