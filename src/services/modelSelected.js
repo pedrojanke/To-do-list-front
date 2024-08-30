@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             model_id: new URLSearchParams(window.location.search).get('modelId')
         };
 
-        fetch(`http://localhost:3000/items`, {
+        fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/items`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
