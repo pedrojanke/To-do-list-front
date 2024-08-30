@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadProjects() {
-    fetch('http://localhost:3000/projects')
+    fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects')
         .then(response => response.json())
         .then(projects => {
             const quadroBody = document.querySelector('.quadro-body');
