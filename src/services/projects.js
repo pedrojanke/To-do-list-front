@@ -53,7 +53,7 @@ function loadProjects() {
                     deleteProject(project.id, projectElement);
                 });
 
-                projectElement.appendChild(projectName);
+                
                 projectElement.appendChild(deleteBtn);
 
                 projectElement.addEventListener('click', () => {
@@ -63,9 +63,8 @@ function loadProjects() {
                 quadroBody.appendChild(projectElement);
             });
         })
-        
         .catch(error => console.error('Erro ao carregar os projetos:', error));
-}
+    }
 
 function deleteProject(projectId, projectElement) {
     fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects/${projectId}`, {
