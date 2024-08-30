@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 project_id
             };
 
-            fetch('http://localhost:3000/models', {
+            fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadProjectById() {
     const projectId = new URLSearchParams(window.location.search).get('projectId');
-    fetch(`http://localhost:3000/projects/${projectId}`)
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects/${projectId}`)
         .then(response => response.json())
         .then(project => {
             const quadroBody = document.querySelector('.quadro-body');
@@ -103,7 +103,7 @@ function loadProjectById() {
 
 function deleteModel(modelId, modelElement) {
     const projectId = new URLSearchParams(window.location.search).get('projectId');
-    fetch(`http://localhost:3000/models/${modelId}`, {
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/models/${modelId}`, {
         method: 'DELETE'
     })
     .then(response => {

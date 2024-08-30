@@ -7,7 +7,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
     const messageDiv = document.getElementById('message') || createMessageDiv();
 
     try {
-        const response = await fetch('http://localhost:3000/users', {
+        const response = await fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showProjectsButton.addEventListener('click', async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/projects');
+            const response = await fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects');
             
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -67,7 +67,7 @@ function loadProjects() {
 }
 
 function deleteProject(projectId, projectElement) {
-    fetch(`http://localhost:3000/projects/${projectId}`, {
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects/${projectId}`, {
         method: 'DELETE',
     })
     .then(response => {

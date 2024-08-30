@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showTeamsButton.addEventListener('click', async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/teams');
+            const response = await fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/teams');
             
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

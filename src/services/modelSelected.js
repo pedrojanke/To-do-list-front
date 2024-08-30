@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkItem(itemId) {
-    fetch(`http://localhost:3000/items/${itemId}`, {
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/items/${itemId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ function checkItem(itemId) {
 }
 
 function uncheckItem(itemId) {
-    fetch(`http://localhost:3000/items/${itemId}`, {
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/items/${itemId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ function uncheckItem(itemId) {
 
 function loadModelById() {
     const modelId = new URLSearchParams(window.location.search).get('modelId');
-    fetch(`http://localhost:3000/models/${modelId}`)
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/models/${modelId}`)
         .then(response => response.json())
         .then(model => {
             const quadroBody = document.querySelector('.quadro-bodytwo');
@@ -143,7 +143,7 @@ function loadModelById() {
 }
 
 function deleteItem(itemId) {
-    fetch(`http://localhost:3000/items/${itemId}`, {
+    fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/items/${itemId}`, {
         method: 'DELETE',
     })
     .then(response => {

@@ -4,8 +4,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const messageDiv = document.getElementById('message');
-
-    // Verifica se os campos estão preenchidos
+    
     if (!email || !password) {
         messageDiv.style.display = 'block';
         messageDiv.textContent = 'Por favor, preencha todos os campos.';
@@ -17,7 +16,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`, {
+        const response = await fetch(`https://to-do-list-backend-2009c1f75d6a.herokuapp.com/users?email=${encodeURIComponent(email)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +30,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
                 const user = users.find(user => user.email === email);
 
                 if (user && user.password === password) {
-                    localStorage.setItem('username', user.name); // Armazena o nome do usuário
+                    localStorage.setItem('username', user.name);
                     messageDiv.style.display = 'block';
                     messageDiv.textContent = 'Login bem-sucedido!';
                     messageDiv.className = 'message-box success';

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const newModelBtn = document.querySelector('.new-project-btn');
-    const container = document.querySelector('.container'); // ou um outro container adequado
+    const container = document.querySelector('.container');
 
     newModelBtn.addEventListener('click', () => {
         loadNewProjectForm();
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function fetchTeams() {
-        fetch('http://localhost:3000/teams')
+        fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/teams')
             .then(response => response.json())
             .then(data => {
                 const teamSelect = document.getElementById('team-select');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('http://localhost:3000/projects', {
+            fetch('https://to-do-list-backend-2009c1f75d6a.herokuapp.com/projects', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
