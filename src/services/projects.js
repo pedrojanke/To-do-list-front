@@ -63,6 +63,7 @@ function loadProjects() {
                 quadroBody.appendChild(projectElement);
             });
         })
+        
         .catch(error => console.error('Erro ao carregar os projetos:', error));
 }
 
